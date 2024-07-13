@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to top left, #0f1b1f, #02090a);
+    backdrop-filter: blur(8px); /* Apply backdrop filter */
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px #2773a5;
+    overflow: hidden; /* Prevent page scrolling */
+
+    z-index: 2;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #148592; /* Dark gray text color */
+}
+
+#videoElement {
+    margin-bottom: 20px;
+    border: 2px solid #007bff; /* Blue border around video element */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+.button-container {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center the buttons horizontally */
+    margin-bottom: 20px; /* Add margin to separate from the video */
+}
+
+#startButton,
+#stopButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+    margin: 0 10px; /* Add margin between buttons */
+}
+
+#startButton:hover,
+#stopButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#canvasElement {
+    display: none; /* Initially hidden */
+    margin-top: 20px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#capturedImage {
+    margin-top: 20px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+}
