@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant&family=Jost:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Sign Language Detection</title>
+</head>
+
+<body>
+    <section id="header">
+        <nav class="nav">
+            <div class="nav-logo">
+                <h1>Sign Language Detection</h1>
+            </div>
+
+            <button id="menu" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+
+    <section class="banner">
+        <div class="container">
+            <div class="half">
+                <h1>Empower Communication with Sign Language Detection</h1>
+                <p>Break barriers and enhance accessibility with our innovative sign language detection technology.</p>
+                <button id="startButton" class="cta-button">Get Started</button>
+            </div>
+            <div class="half last">
+                <img src="https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/202205/MIT_Explanation-Summary-01-PRESS_0.jpg?itok=c8saLuUt"
+                    alt="Sign Language Banner">
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="item">
+                <p>Our technology enables real-time detection of sign language gestures, fostering inclusive
+                    communication environments.</p>
+            </div>
+            <div class="item">
+                <img src="https://hughyu.com/_next/image?url=https:%2F%2Fwww.notion.so%2Fimage%2Fhttps%253A%252F%252Fs3-us-west-2.amazonaws.com%252Fsecure.notion-static.com%252Fdb35a2ba-8fb9-47a4-91be-532ca9414420%252Fsign_lang.png%3Ftable%3Dblock%26id%3Df5c7dcbf-0b10-4f69-a01d-7ab397394570%26cache%3Dv2&w=3840&q=75"
+                    alt="Sign Language Detection">
+            </div>
+            <div class="item">
+                <p>Compatible with various devices and platforms, our solution ensures seamless integration into your
+                    existing systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <h2>FAQ</h2>
+        <div class="container">
+            <div class="item">
+                <h3 class="accordion">How does sign language detection work?</h3>
+                <div id="accordion1" class="accordion-content">
+                    <p>Our system utilizes machine learning algorithms to analyze video input and recognize predefined
+                        sign language gestures, allowing for efficient interpretation.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 class="accordion">Is the detection accurate?</h3>
+                <div id="accordion2" class="accordion-content">
+                    <p>Yes, our technology undergoes rigorous testing to ensure high accuracy in recognizing sign
+                        language gestures, providing reliable results.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 class="accordion">Can it be integrated into mobile applications?</h3>
+                <div id="accordion3" class="accordion-content">
+                    <p>Absolutely, our solution offers flexible integration options, including SDKs for mobile app
+                        development, enabling seamless implementation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container social-media-links">
+            <ul class="list">
+                <li><a href="#"><img src=""></a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <p class="all-rights-reserved">All Rights Reserved &copy; Sign Language detection</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const accordions = document.querySelectorAll('.accordion');
+    
+            accordions.forEach(accordion => {
+                accordion.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + 'px';
+                    }
+                });
+            });
+        });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const startButton = document.getElementById('startButton');
+    startButton.addEventListener('click', function() {
+      // Redirect to the desired page
+      window.location.href = "another-page.html"; // Replace "another-page.html" with the URL of the page you want to open
+    });
+  });
+
+    </script>
+    
+    </body>
+    </html>

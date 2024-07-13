@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Detection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Sign Language Detection</h1>
+    
+    <!-- Video Element to Display Camera Feed -->
+    <video id="videoElement" width="640" height="480" autoplay></video>
+    
+    
+    <div class="button-container">
+        <button id="startButton">Start Camera</button>
+        <button id="stopButton">Stop Camera</button>
+    </div>
+    
+    <!-- Script to Handle Camera Access and Processing -->
+    <script>
+        let stream; // Global variable to store the camera stream
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const startButton = document.getElementById('startButton');
+            const stopButton = document.getElementById('stopButton');
+            const videoElement = document.getElementById('videoElement');
+
+            // Check if browser supports getUserMedia
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                startButton.addEventListener('click', startCamera);
+                stopButton.addEventListener('click', stopCamera);
+            } else {
+                console.error('getUserMedia not supported in this browser');
+                // Handle error here
+            }
+
+            function startCamera() {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then((str) => {
+                        stream = str; // Store the stream
+                        videoElement.srcObject = stream;
+                        videoElement.play();
+                        // Call function to start processing video frames
+                        startProcessing(stream);
+                    })
+                    .catch((error) => {
+                        console.error('Error accessing camera:', error);
+                        // Handle error here
+                    });
+            }
+
+            function stopCamera() {
+                if (stream) {
+                    const tracks = stream.getTracks();
+                    tracks.forEach(track => track.stop());
+                    videoElement.srcObject = null;
+                }
+            }
+        });
+
+        // function startProcessing(stream) {
+        //     const videoElement = document.getElementById('videoElement');
+        //     const canvas = document.createElement('canvas');
+        //     const context = canvas.getContext('2d');
+
+        //     // Function to process each frame
+        //     function processFrame() {
+        //         context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+        //         const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+        //         // Pass imageData to your model for inference
+        //         const detectedGesture = detectSignLanguage(imageData);
+
+        //         // Update UI based on detected gesture
+        //         updateUI(detectedGesture);
+
+        //         // Repeat the process for the next frame
+        //         requestAnimationFrame(processFrame);
+        //     }
+
+        //     // Start processing frames
+        //     requestAnimationFrame(processFrame);
+        // }
+
+        // async function detectSignLanguage(imageData) {
+        //     // Load the model when the DOM content is loaded
+        //     if (!model) {
+        //         model = await loadModel();
+        //     }
+        //     // Perform inference using your model
+        //     // Example: const predictions = model.predict(imageData);
+        //     // Return detected gesture
+        // }
+
+        // function updateUI(detectedGesture) {
+        //     // Update UI based on the detected sign language gesture
+        //     // Example: document.getElementById('gestureLabel').innerText = detectedGesture;
+        // }
+
+        // // Load the pre-trained model
+        // async function loadModel() {
+        //     // Replace 'yourModel' with the path to your model
+        //     const model = await tf.loadLayersModel('yourModel');
+        //     return model;
+        // }
+    </script>
+</body>
+</html>
